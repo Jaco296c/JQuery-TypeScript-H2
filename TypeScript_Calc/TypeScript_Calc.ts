@@ -1,5 +1,5 @@
-var firstNumber = document.getElementById("FirstNumber");
-var secondNumber = document.getElementById("SecondNumber");
+var firstNumber = document.getElementById("FirstNumber") as HTMLInputElement;
+var secondNumber = document.getElementById("SecondNumber") as HTMLInputElement;
 var calcResult = document.getElementById("CalcResult");
 
 class ButtonFunction {
@@ -11,11 +11,10 @@ class ButtonFunction {
 
     action(){
         return()=>{
-            if(this.text == "+"){
                 if (firstNumber == null || secondNumber == null) return;
-                calcResult = eval(firstNumber.innerText + secondNumber.innerText)
-                console.log(firstNumber.getAttribute('Value'));
-            }
+                let result = eval(firstNumber.value + this.text + secondNumber.value)
+                if (calcResult == null ) return;
+                calcResult.innerHTML = result;
         }
     }
 }

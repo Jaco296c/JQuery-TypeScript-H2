@@ -9,12 +9,12 @@ var ButtonFunction = /** @class */ (function () {
     ButtonFunction.prototype.action = function () {
         var _this = this;
         return function () {
-            if (_this.text == "+") {
-                if (firstNumber == null || secondNumber == null)
-                    return;
-                calcResult = eval(firstNumber.innerText + secondNumber.innerText);
-                console.log(firstNumber.getAttribute('Value'));
-            }
+            if (firstNumber == null || secondNumber == null)
+                return;
+            var result = eval(firstNumber.value + _this.text + secondNumber.value);
+            if (calcResult == null)
+                return;
+            calcResult.innerHTML = result;
         };
     };
     return ButtonFunction;
